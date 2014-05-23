@@ -7,7 +7,21 @@ require 'susy'
 
 # Change Compass configuration
 # compass_config do |config|
-#   config.output_style = :compact
+
+  # Added by GM from the Sass and Compass for Designers eBook:
+
+  # 1. You can select your preferred output style here (can be overridden via the command line):
+  # config.output_style = :expanded or :nested or :compact or :compressed
+
+  # 2. To enable relative paths to assets via compass helper functions, uncomment:
+  # config.relative_assets = true
+
+  # 3. To disable debugging comments that display the original location of your selectors, uncomment:
+  # config.line_comments = false
+
+  # Note: A loud comment will be retained in the output CSS, even if the compressed option is chosen. Here's an example of how to create a loud comment:
+  # /*! I am loud; hear me roar */
+
 # end
 
 ###
