@@ -20,3 +20,6 @@ gem "susy", "~> 2.1.2"
 #platforms :mswin, :mingw do
 #   gem "wdm", "~> 0.1.0" # Windows Directory Monitor
 #end
+
+# livereload support - won't work on codio.com projects as not on 0.0.0.0 it seems :(
+# gem "middleman-livereload", "~> 3.1.0"

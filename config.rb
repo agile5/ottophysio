@@ -146,3 +146,6 @@ end
 
 # Skip locale validation (and validation warnings)
 I18n.enforce_available_locales = false
+
+# Livereload activation
+# activate :livereload

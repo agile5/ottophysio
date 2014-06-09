@@ -4,21 +4,22 @@
 
 @import "compass"
 @import "partials/variables"
+@import "partials/mixins"
+@import "partials/fonts"
 @import "partials/normalize"
-
-// HTML5 Boilerplate Styles
-// TODO: add appropriate h5bp styles now that we're not using the gem anymore
-
+@import "partials/base"
+@import "partials/placeholders"
+@import "partials/layout"
+@import "partials/modules"
 // Susy Grid Systems - choose one to customize
 // @import "grid/fixed"
 @import "grid/magic"
-
 // Font Awesome icons
 // @import "font-awesome"
 
-// Your own styles go here.
+// Your own styles go here... I will be moving this all to partials as per SMACSS / Compass & Sass eBook
 h1
-  color: $colour8
+  color: $colour9
   text-transform: uppercase
   line-height: 1em
 h2
@@ -36,10 +37,3 @@ footer
   img
     max-width: 100%
     height: auto
-
-
-// H5BP helper classes & mixins.
-// @include h5bp-helpers
-
-// Print styles.
-// TODO: add appropriate h5bp styles now that we're not using the gem anymore

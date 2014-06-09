@@ -8,48 +8,122 @@
   %head
     %meta{:charset => "utf-8"}
     %meta{'http-equiv' => "X-UA-Compatible", :content =>"IE=edge"}
-
-    -# Pull in the page title
     %title= current_page.data.title
-
     %meta{:name => "description", :content => ""}
     %meta{:name => "author", :content => ""}
-    -# You may wish to remove the 'initial scale=1.0' for non-responsive layouts
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-
-    -# Place favicon.ico and apple-touch-icon(s) in the root directory
-
-    = stylesheet_link_tag "screen"
+    = stylesheet_link_tag "all"
     = javascript_include_tag "libs/modernizr-2.7.1.min"
-
   %body{:class => current_page.data.bodyclass}
     /[if lt IE 8]
       %p.browsehappy
         You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
     .container
-      %header
-        %h1= current_page.data.title
-      #main-content{:role => "main"}
-        -# Page content gets rendered here
-        = yield
 
-      %footer
-        %p &copy; #{copyright_years(2011)} AmicusUser
+    %header{:role => "banner"}
+      .inner-header
+        %h1.header-logo
+          %a{:href => "/"}
+            Otto Physio
+            %span.main-link-headline-strap - Physiotherapy &amp; Sports Massage
+        %ul.header-buttons-list
+          %li
+            %a.main-link.color-one{:href => "#"} link 1
+          %li
+            %a.main-link.color-two{:href => "#"} link 2
+          %li
+            %a.main-link.color-three{:href => "#"} link 3
+          %li
+            %a.main-link.color-four{:href => "#"} link 4
+          %li
+            %a.main-link.color-five{:href => "#"} link 5
+        .off-canvas-navigation
+          %a#sidebar_button.sidebar-button{:href => "#sidebar"} Main Nav
+      / /.inner-header
+
+    .inner-content
+      %nav{:role => "navigation"}
+        %ul.chapter-list
+          %li.chapter-summary
+            %a.chapter-link{:href => "index.html"}
+              %b About the book
+              %span What Sass and Compass for designers can do for you.
+          %li.chapter-summary
+            %a.chapter-link{:href => "chapter1.html"}
+              %b Chapter 1
+              %span Getting started with Sass and Compass
+          %li.chapter-summary
+            %a.chapter-link{:href => "chapter2.html"}
+              %b Chapter 2
+              %span Setting up a Sass and Compass project
+          %li.chapter-summary
+            %a.chapter-link{:href => "chapter3.html"}
+              %b Chapter 3
+              %span Understanding Nesting, Extend, Placeholders &amp; Mixins
+          %li.chapter-summary
+            %a.chapter-link{:href => "chapter4.html"}
+              %b Chapter 4
+              %span Manipulate color with ease
+          %li.chapter-summary
+            %a.chapter-link{:href => "chapter5.html"}
+              %b Chapter 5
+              %span Responsive and flexible grids with Sass and Compass
+          %li.chapter-summary
+            %a.chapter-link{:href => "chapter6.html"}
+              %b Chapter 6
+              %span Easy media queries for responsive designs
+          %li.chapter-summary
+            %a.chapter-link{:href => "chapter7.html"}
+              %b Chapter 7
+              %span Easy CSS3, image sprites and more with Compass
+          %li.chapter-summary
+            %a.chapter-link{:href => "chapter8.html"}
+              %b Chapter 8
+              %span Using programmatic logic in Sass
+          %li.chapter-summary
+            %a.chapter-link{:href => "chapter9.html"}
+              %b Chapter 9
+              %span Becoming a Sass and Compass power user
+      .main-content{:role => "main"}
+        %h1.headline
+          %span.headline-hero= current_page.data.title
+          %i.ampersand &amp;
+          %span.headline-sidekick Something Else
+          %span.forwho With Strapline
+        %p
+          Learn how to easily write more maintainable CSS with the
+          %a{:href => "http://sass-lang.com"} Sass
+          preprocessor and it's companion authoring framework
+          = succeed "." do
+            %a{:href => "http://compass-style.org"} Compass
+        %p Whilst Sass and Compass may initially seem complex this book clearly explains the core concepts and tools in layman's terms (if you can write CSS and HTML, you can easily master Sass and Compass) so that you can get to grips with the awesome power of Sass and Compass and start writing CSS that is more modular, maintainable and easier to write than ever before.
+        %aside.testimonial
+          = image_tag 'book.png', :width => '135', :alt => 'book'
+          / / %img{:alt => "Sass and Compass for designers book image", :src => "images/book.png"}
+          %blockquote
+            Easily the best book about Sass and Compass he's ever written...
+            %footer Ben's Mum
+        %section
+          %ul.purchase-links-wrapper
+            %li.purchase-link
+              %a.buy_1.ir{:href => "http://amazon.com"} Amazon US
+            %li.purchase-link
+              %a.buy_2.ir{:href => "http://amazon.co.uk"} Amazon UK
+            %li.purchase-link
+              %a.buy_3.ir{:href => "http://barnesandnoble.com"} Barnes and Noble
+            %li.purchase-link
+              %a.buy_4.ir{:href => "http://packtpub.com"} Packt
+        = yield
+    / /.inner-content
+    %footer#main-footer{:role => "contentinfo"}
+      .inner-footer
+        %p.copyright &copy; #{copyright_years(2014)} Otto Physio. All rights reserved.
+      / /.inner-footer
 
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
     :javascript
       window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.10.2.min.js"><\/script>')
 
-    -# Holder.js - canvas-generated placeholder images for prototyping
     = javascript_include_tag "libs/holder"
 
-    = javascript_include_tag "plugins", "script"
-
-    -# Google Analytics: change UA-XXXXX-X to be your site's ID.
-    -# :javascript
-      -# (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      -# function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      -# e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      -# e.src='//www.google-analytics.com/analytics.js';
-      -# r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      -# ga('create','UA-XXXXX-X');ga('send','pageview');
+    = javascript_include_tag "plugins", "all"
