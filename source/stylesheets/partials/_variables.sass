@@ -1,29 +1,31 @@
 $colour1: #FF0000 // Red
 $colour2: #FFBF00 // Orange
 $colour3: #FFFF00 // Yellow
-$colour4: #7FFF00 // Green
-$colour5: #007FFF // Light Blue
+$colour4: #3ea637 // #7FFF00 Otto Green
+$colour5: #106fb3 // #007FFF // Otto Blue
 $colour6: #00FFFF // Cyan
 $colour7: #0000FF // Blue
 $colour8: #7F00FF // Purple
 $colour9: #FF00FF // Magenta
 $colour10: #000 // Black
 $colour11: #fff // White
+$colour12: #6bcbff // Otto Sky Blue
 
-$colour-brand: pink // Yep, pink!
 $blockquote-bg: #faebbe // Yellowy
 $colour-link: #3D518F // blue-dark
 
 // A simple theme switcher
 // ====================================================================
 
+$colour-brand: $colour5
 $colour-theme: pink
 
 @if $colour-theme == pink
 	$colour-brand: pink
-@else if $colour-theme == orange
-	$colour-brand: #ff9900
-
+@else if $colour-theme == black
+	$colour-brand: $colour10
+@else if $colour-theme == white
+	$colour-brand: $colour11
 
 $theme-complement: complement($colour-theme)
 $theme-invert: invert($colour-theme)

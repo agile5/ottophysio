@@ -13,117 +13,98 @@
     %meta{:name => "author", :content => ""}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     = stylesheet_link_tag "all"
-    = javascript_include_tag "libs/modernizr-2.7.1.min"
+    // here, don't put paths in like 'libs/moder...' or crashes browser
+    = javascript_include_tag "modernizr-2.7.1.min"
   %body{:class => current_page.data.bodyclass}
     /[if lt IE 8]
       %p.browsehappy
         You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
     .container
 
-    %header{:role => "banner"}
-      .inner-header
-        %h1.header-logo
-          %a{:href => "/"}
-            Otto Physio
-            %span.main-link-headline-strap - Physiotherapy &amp; Sports Massage
-        %ul.header-buttons-list
-          %li
-            %a.main-link.color-one{:href => "#"} link 1
-          %li
-            %a.main-link.color-two{:href => "#"} link 2
-          %li
-            %a.main-link.color-three{:href => "#"} link 3
-          %li
-            %a.main-link.color-four{:href => "#"} link 4
-          %li
-            %a.main-link.color-five{:href => "#"} link 5
-        .off-canvas-navigation
-          %a#sidebar_button.sidebar-button{:href => "#sidebar"} Main Nav
-      / /.inner-header
+      %header{:role => "banner"}
+        .inner-header
+          %h1.header-logo
+            %a{:href => "/"}
+              Otto Physiotherapy
+              %span.main-link-headline-strap &nbsp;
+          %ul.header-buttons-list
+            %li
+              %a.main-link.color-one{:href => "#"} home
+            %li
+              %a.main-link.color-two{:href => "#"} location
+            %li
+              %a.main-link.color-three{:href => "#"} about mike
+            %li
+              %a.main-link.color-five{:href => "#"} contact
+          .off-canvas-navigation
+            %a#sidebar_button.sidebar-button{:href => "#sidebar"} Main Nav
+        / /.inner-header
 
-    .inner-content
-      %nav{:role => "navigation"}
-        %ul.chapter-list
-          %li.chapter-summary
-            %a.chapter-link{:href => "index.html"}
-              %b About the book
-              %span What Sass and Compass for designers can do for you.
-          %li.chapter-summary
-            %a.chapter-link{:href => "chapter1.html"}
-              %b Chapter 1
-              %span Getting started with Sass and Compass
-          %li.chapter-summary
-            %a.chapter-link{:href => "chapter2.html"}
-              %b Chapter 2
-              %span Setting up a Sass and Compass project
-          %li.chapter-summary
-            %a.chapter-link{:href => "chapter3.html"}
-              %b Chapter 3
-              %span Understanding Nesting, Extend, Placeholders &amp; Mixins
-          %li.chapter-summary
-            %a.chapter-link{:href => "chapter4.html"}
-              %b Chapter 4
-              %span Manipulate color with ease
-          %li.chapter-summary
-            %a.chapter-link{:href => "chapter5.html"}
-              %b Chapter 5
-              %span Responsive and flexible grids with Sass and Compass
-          %li.chapter-summary
-            %a.chapter-link{:href => "chapter6.html"}
-              %b Chapter 6
-              %span Easy media queries for responsive designs
-          %li.chapter-summary
-            %a.chapter-link{:href => "chapter7.html"}
-              %b Chapter 7
-              %span Easy CSS3, image sprites and more with Compass
-          %li.chapter-summary
-            %a.chapter-link{:href => "chapter8.html"}
-              %b Chapter 8
-              %span Using programmatic logic in Sass
-          %li.chapter-summary
-            %a.chapter-link{:href => "chapter9.html"}
-              %b Chapter 9
-              %span Becoming a Sass and Compass power user
-      .main-content{:role => "main"}
-        %h1.headline
-          %span.headline-hero= current_page.data.title
-          %i.ampersand &amp;
-          %span.headline-sidekick Something Else
-          %span.forwho With Strapline
-        %p
-          Learn how to easily write more maintainable CSS with the
-          %a{:href => "http://sass-lang.com"} Sass
-          preprocessor and it's companion authoring framework
-          = succeed "." do
-            %a{:href => "http://compass-style.org"} Compass
-        %p Whilst Sass and Compass may initially seem complex this book clearly explains the core concepts and tools in layman's terms (if you can write CSS and HTML, you can easily master Sass and Compass) so that you can get to grips with the awesome power of Sass and Compass and start writing CSS that is more modular, maintainable and easier to write than ever before.
-        %aside.testimonial
-          = image_tag 'book.png', :width => '135', :alt => 'book'
-          / / %img{:alt => "Sass and Compass for designers book image", :src => "images/book.png"}
-          %blockquote
-            Easily the best book about Sass and Compass he's ever written...
-            %footer Ben's Mum
-        %section
-          %ul.purchase-links-wrapper
-            %li.purchase-link
-              %a.buy_1.ir{:href => "http://amazon.com"} Amazon US
-            %li.purchase-link
-              %a.buy_2.ir{:href => "http://amazon.co.uk"} Amazon UK
-            %li.purchase-link
-              %a.buy_3.ir{:href => "http://barnesandnoble.com"} Barnes and Noble
-            %li.purchase-link
-              %a.buy_4.ir{:href => "http://packtpub.com"} Packt
-        = yield
-    / /.inner-content
-    %footer#main-footer{:role => "contentinfo"}
-      .inner-footer
-        %p.copyright &copy; #{copyright_years(2014)} Otto Physio. All rights reserved.
-      / /.inner-footer
+      .inner-content
+        %nav{:role => "navigation"}
+          %ul.chapter-list
+            %li.chapter-summary
+              %a.chapter-link{:href => "#"}
+                %b Back Pain
+                %span Get pain relief from acute &amp; chronic back pain
+            %li.chapter-summary
+              %a.chapter-link{:href => "#"}
+                %b Hands-on Treatment
+                %span Gentle muscle release &amp; soothing of joint pain
+            %li.chapter-summary
+              %a.chapter-link{:href => "#"}
+                %b Sports Massage
+                %span Physiotherapy &amp; deep tissue massage for pain release
+            %li.chapter-summary
+              %a.chapter-link{:href => "#"}
+                %b Conditions Treatment
+                %span Learn more about my treatment of back pain &amp; other conditions
+            %li.chapter-summary
+              %a.chapter-link{:href => "#"}
+                %b Contact Mike Otto
+                %span Call my Totnes clinic, ask a question, book an appointment
+        .main-content{:role => "main"}
+          %h1.headline
+            %span.headline-hero= current_page.data.title
+            / /%i.ampersand &amp;
+            / /%span.headline-sidekick Sports Massage
+            / /%span.forwho With Strapline
+          %p
+            = lorem.sentences 1
+            %a{:href => "#"} link
+            = lorem.sentences 1
+            = succeed "." do
+              %a{:href => "#"} link
+          %p= lorem.sentences 5
+          %aside.testimonial
+            = img_holder(:width => 175, :height => 150, :bgcolor => "#0c0", :fgcolor => "#fff", :text => "I'm an image placeholder!")
+            / / = lorem.image('150x200', :background_color => '333', :color => 'fff')
+            / / = image_tag 'book.png', :width => '135', :alt => 'book'
+            / / %img{:alt => "Sass and Compass for designers book image", :src => "images/book.png"}
+            %blockquote
+              = lorem.sentences 2
+              %footer A. Client.
+          / /%section
+          / /  %ul.purchase-links-wrapper
+          / /    %li.purchase-link
+          / /      %a.buy_1.ir{:href => "http://amazon.com"} Amazon US
+          / /    %li.purchase-link
+          / /      %a.buy_2.ir{:href => "http://amazon.co.uk"} Amazon UK
+          / /    %li.purchase-link
+          / /      %a.buy_3.ir{:href => "http://barnesandnoble.com"} Barnes and Noble
+          / /    %li.purchase-link
+          / /      %a.buy_4.ir{:href => "http://packtpub.com"} Packt
+          = yield
+      / /.inner-content
+      %footer#main-footer{:role => "contentinfo"}
+        .inner-footer
+          %p.copyright &copy; #{copyright_years(2014)} Otto Physio. All rights reserved.
+        / /.inner-footer
 
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
     :javascript
       window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.10.2.min.js"><\/script>')
-
+    // GM: yet here, you need the path i.e. 'libs/moder...' = weird behaviour
     = javascript_include_tag "libs/holder"
-
     = javascript_include_tag "plugins", "all"
+

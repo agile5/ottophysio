@@ -7,7 +7,7 @@
 
 [role="banner"]
   @extend %clearfix
-  @include background(image-url("line.png"),linear-gradient(top, darken($colour-brand, 10%) 0px, darken($colour-brand, 10%) 5px, lighten(complement($colour-brand), 10%) 5px,  complement($colour-brand) 100%))
+  @include background(image-url("line.png"), $colour5) // linear-gradient(top, darken($colour-brand, 10%) 0px, darken($colour-brand, 10%) 5px, lighten(complement($colour-brand), 10%) 5px,  complement($colour-brand) 100%)
   @include box-shadow(#ccc 0px 3px 10px)
   padding: 1.5em 0 1em 0
 
@@ -21,22 +21,22 @@
 
 // Each anchor link in the list
 .main-link
-  @include button-links(complement(darken($colour11,7%)),complement(darken($colour11,4%)))
+  @include button-links(complement(darken($colour11,7%)),complement(darken($colour11,1%)))
   @include box-shadow(0px 0px 4px 0px lighten($colour10, 80%))
   &:hover
-    @include box-shadow(0px 0px 6px 0px lighten($colour10, 70%))
+    @include box-shadow(0px 0px 6px 0px lighten($colour10, 20%))
 
 .header-logo
   @extend %single-transition
   @extend %font-opensans
-  font-size: 2em
+  font-size: 1.7em
   margin: 0
   display: inline-block
-  @include text-shadow(0px 0px 20px $colour-brand)
+  @include text-shadow(0px 0px 10px $colour10)
   &:hover,&:active,&:focus
-    @include text-shadow(0px 0px 20px darken($colour-brand, 20%))
+    @include text-shadow(0px 0px 20px lighten($colour10, 10%))
   a
-    color: $colour10
+    color: $colour11
 
 // Off canvas section to show/hide the Chapters
 // ====================================================================
@@ -105,15 +105,15 @@
 
 // Current state for the intro page item in the navigation
 // ====================================================================
-.intro
-  .chapter-summary
-    &:nth-child(1)
-      @include background(linear-gradient(left, transparentize(complement($colour-brand), .8) 0px, complement($colour-brand) 96%, darken(complement($colour-brand), 10%) 96%, darken(complement($colour-brand), 10%) 99%, $colour11 100%))
-      &:after
-        background-color: darken(complement($colour-brand), 10%)
-        @include box-shadow(#ccc 1px -1px 2px)
-        content: "\00a0"
-      @include box-shadow(#ccc 1px 1px 2px)
+//.intro
+//  .chapter-summary
+//    &:nth-child(1)
+//      @include background(linear-gradient(left, transparentize($colour4, .8) 0px, $colour4 96%, darken($colour4, 10%) 96%, darken($colour4, 10%) 99%, $colour11 100%))
+//      &:after
+//        background-color: darken($colour4, 10%)
+//        @include box-shadow(#ccc 1px -1px 2px)
+//        content: "\00a0"
+//      @include box-shadow(#ccc 1px 1px 2px)
 
 // @each loop to produce each hover/active state in the navigation/chapter list
 // ====================================================================
@@ -121,7 +121,6 @@
 $theme-complement: complement($colour-theme)
 $theme-adjust: adjust-hue($colour-theme, 90deg)
 $theme-shade: shade($colour-theme, 10%)
-$theme-tint: tint($colour-theme, 20%)
 $theme-desaturate: desaturate($colour-theme, 30%)
 $theme-transparentize: transparentize($theme-adjust, .5)
 $theme-adjust20: adjust-hue($colour-theme, 20deg)
@@ -129,7 +128,15 @@ $theme-adjust40: adjust-hue($colour-theme, 40deg)
 $theme-adjust-complement: adjust-hue($theme-complement, 20deg)
 $theme-adjust-complement2: adjust-hue($theme-complement, 30deg)
 
-$colours-list: $colour-theme $theme-adjust-complement2 $theme-complement $theme-adjust $theme-adjust-complement $theme-shade $theme-tint $theme-desaturate $theme-adjust20 $theme-adjust40
+$theme-tint1: tint($colour-theme, 20%)
+$theme-tint2: tint($colour-theme, 25%)
+$theme-tint3: tint($colour-theme, 30%)
+$theme-tint4: tint($colour-theme, 35%)
+$theme-tint5: tint($colour-theme, 40%)
+
+$colours-list: $theme-tint1 $theme-tint2 $theme-tint3 $theme-tint4 $theme-tint5
+
+// $colour-theme $theme-adjust-complement2 $theme-complement $theme-adjust $theme-adjust-complement $theme-shade $theme-tint $theme-desaturate $theme-adjust20 $theme-adjust40
 
 @each $end-color in $colours-list
   $i: index($colours-list, $end-color)
@@ -167,19 +174,19 @@ $colours-list: $colour-theme $theme-adjust-complement2 $theme-complement $theme-
 
 .ampersand
   @extend %font-opensans
-  @extend %headline-text-shadow
-  font-size: 1.5em
+//  @extend %headline-text-shadow
+  font-size: 1.3em
   margin: 0 .1em
 
 .headline-hero
   @extend %font-opensans
-  @extend %headline-text-shadow
-  font-size: 1.5em
+//  @extend %headline-text-shadow
+  font-size: 1.3em
 
 .headline-sidekick
   @extend %font-opensans
-  @extend %headline-text-shadow
-  font-size: 1.5em
+//  @extend %headline-text-shadow
+  font-size: 1.3em
 
 .forwho
   background: $colour-brand
@@ -245,16 +252,16 @@ blockquote
   font-style: italic
   display: inline-block
   vertical-align: top
-  font-size: 1.3em
+  font-size: 1em
   @include MQ(Splus)
     padding: 0 .5em
-    font-size: 1.5em
+    font-size: 1.2em
   @include MQ(Mplus)
-    font-size: 1.8em
+    font-size: 1.5em
     margin: 0 0 0 3%
     width: 76%
   @include MQ(Lplus)
-    font-size: 2em
+    font-size: 1.7em
   footer
     @include MQ(XSplus)
       font-size: .8em
